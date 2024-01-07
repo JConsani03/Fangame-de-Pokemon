@@ -1,0 +1,360 @@
+/* Seleectores: id(#), clase (.), tipo(nombre de la etiqueta)*/
+
+/* Displays:    block (cubre todo el ancho de la página)
+                inline (cubre solo el tamaño del elemento. Se posicionan uno al lado del otro)
+                inline-block (cubre el tamaño indicado por el height y width. Se posicionan uno al lado del otro)
+                flex (block con esteroides)*/
+
+/* Reglas: @(nombre de la regla, ej. @media)*/
+
+/* FUENTES */
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("fuentes/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("fuentes/Roboto-Bold.ttf");
+}
+/* FIN-FUENTES */
+
+/* TIPOGRAFÍAS */
+h1 {
+    font-family: Roboto-Bold;
+    font-size: 120px;
+    color: rgba(231, 230, 230, 0.93);
+    margin-bottom: 0px;
+    margin-top: 0px;
+    transition: .2s;
+}
+
+h2 {
+    font-family: Roboto-Bold;
+    font-size: 32px;
+    color: rgba(231, 230, 230, 0.835);
+    margin-top: 0px;
+    margin-bottom: 8px;
+    transition: .2s;
+}
+
+p {
+    font-family: Roboto-Regular;
+    font-size: 16px;
+    color: rgb(231, 230, 230);
+    margin-top: 0px;
+    margin-bottom: 8px;
+    transition: .2s;
+}
+/* FIN-TIPOGRAFÍAS */
+
+body {
+    margin: 0px;
+    text-align: -webkit-center;
+    background-color: rgb(39, 31, 61);
+}
+
+.categoria {
+    background-color: rgba(122, 122, 107, 0.505);
+    text-align: -webkit-center;
+    margin: 12px;
+    padding: 16px;
+    border: none;
+    border-radius: 40px;
+    box-sizing: border-box; /*para que el padding no modifique el tamaños*/
+}
+
+/* CATEGORÍA-SELEC */
+
+.selec {
+    width: 560px;
+    background-color: #43558548;
+    transition: .2s;
+}
+
+#pokemons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.selec input {
+    display: none;
+}
+
+.selec input:checked+label {
+    background-color: rgba(39, 113, 109, 0.75);
+    box-shadow: 4px 4px rgba(28, 83, 80, 0.75);
+    padding-bottom: 100px;
+    transform: scale(1.07);
+}
+
+.selec label {
+    margin: 8px;
+    padding: 8px;
+    width: 135px;
+    height: 135px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.254);
+    cursor: pointer;
+    box-sizing: border-box;
+
+    transition: .2s;
+}
+
+#Snivy{
+    width: 70px;
+    transition: .2s;
+}
+
+#Tepig {
+    width: 55px;
+    transition: .2s;
+}
+
+#Oshawott {
+    width: 60px;
+    transition: .2s;
+}
+
+#Scovillain {
+    width: 80px;
+    transition: .2s;
+}
+
+#Lotad {
+    width: 90px; 
+    margin-top: 16px;
+    transition: .2s;
+}
+
+#Volcanion {
+    width: 80px;
+    transition: .2s;
+}
+
+#btn_selec {
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+#btn_selec button {
+    width: 70%;
+    height: 35px;
+    font-family: Roboto-Bold;
+    font-size: 16px;
+    color: rgb(231, 230, 230);
+    background-color: rgb(73, 83, 111);
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 3px rgb(59, 66, 87);
+    transition: .2s;
+}
+
+#b_selec:hover {
+    background-color: rgb(100, 112, 147);
+}
+
+#b_selec:active {
+    transition: 0s;
+    align-self: flex-end;
+    box-shadow: none;
+}
+/* FIN-CATEGORÍA-SELEC */
+
+/* CATEGORÍA-ATACK */
+#seleccion-ataque{
+    text-align: center;
+}
+
+#seleccion-ataque div {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    height: 48px;
+}
+
+#🔥 {
+    background-color: rgba(255, 70, 70, 0.5);
+}
+
+#💧 {
+    background-color: rgba(70, 70, 255, 0.5);
+}
+
+#🌱 {
+    background-color: rgba(70, 255, 70, 0.5);
+}
+
+#seleccion-ataque button {
+    font-family: Roboto-Bold;
+    width: 120px;
+    height: 45px;
+    font-size: 16px;
+    color: rgb(231, 230, 230);
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 2.8px rgb(59, 66, 87);
+    transition: .2s;
+}
+
+#seleccion-ataque button:active {
+    transition: 0s;
+    align-self: flex-end;
+    box-shadow: none;
+}
+
+#seleccion-ataque button:disabled {
+    display: none;
+}
+
+#seleccion-ataque button:hover {
+    background-color: rgb(100, 112, 147);
+}
+/* FIN-CATEGORÍA-ATACK */
+
+/* HISTORIAL */
+#historial {
+    display: flex;
+    justify-content: center;
+}
+
+#historial h2 {
+    font-size: 52px;
+}
+
+.player,
+.pc {
+    width: 210px;
+    background-color: rgba(140, 122, 100, 0.472);
+    box-shadow: 3.5px 3.5px rgb(45, 44, 44);
+    transition: .2s;
+}
+
+.player div,
+.pc div {
+    width: 90%;
+    height: 150px;
+    /* overflow-y: scroll; */
+}
+
+#pok_player, #pok_pc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* FIN-HISTORIAL */
+
+/* MEDIAS */
+@media (min-width: 670px) {
+    .selec {
+        width: 560px;
+    }
+    h1 {
+       font-size: 120px;
+    }
+    .selec p {
+        font-size: 16px;
+    }
+     #Snivy{
+        width: 70px;
+    }
+    #Tepig {
+        width: 55px;
+    } 
+    #Oshawott {
+        width: 60px;
+    }
+    #Scovillain {
+        width: 80px;
+    }
+    #Lotad {
+        width: 90px; 
+    }
+    #Volcanion {
+        width: 80px;
+    }
+}
+
+@media (max-width: 670px) {
+    .selec {
+        width: 350px;
+    }
+    h1 {
+       font-size: 80px;
+    }
+    .selec p {
+        font-size: 12px;
+     }
+    .selec label {
+        width: 110px;
+        height: 110px;
+    }
+    #Snivy{
+        width: 50px;
+    }
+    #Tepig {
+        width: 35px;
+    }
+    
+    #Oshawott {
+        width: 40px;
+    }
+    
+    #Scovillain {
+        width: 60px;
+    }
+    
+    #Lotad {
+        width: 70px; 
+        margin-top: 16px;
+    }
+    
+    #Volcanion {
+        width: 60px;
+    }
+}
+
+@media (max-width: 470px) {
+    #pok_player, #pok_pc {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 430px) {
+    h1 {
+        font-size: 56px;
+    }
+    .selec {
+        width: 80%;
+    }
+}
+
+@media (max-width: 388px) {
+    p {
+        font-size: 12px;
+     }
+}
+
+@media (max-width: 320px) {
+    .player,
+    .pc {
+        margin: 4px;
+    }
+    h1 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 285px) {
+    #pok_player {
+        gap: 15px;
+     }
+}

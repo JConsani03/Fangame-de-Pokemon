@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon!</title>
+    <script src="codigo.js" async=true></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <h1 id="titulo">¡POKÉMON!</h1>
+
+    <section class="categoria selec" id="seleccion-pokemon">
+
+        <h2>Elige a tu pokémon</h2>
+
+        <div id="pokemons">
+        </div>
+
+        <div id="btn_selec">
+            <button id="b_selec">Seleccionar</button>
+        </div>
+
+    </section>
+
+    <section id="seleccion-ataque">
+
+        <h2>Elige tu ataque</h2>
+
+        <div id="botonesAtaque">
+
+            <button id="🔥" name="btn">Fuego 🔥</button>
+            <button id="💧" name="btn">Agua 💧</button>
+            <button id="🌱" name="btn">Planta 🌱</button>
+
+        </div>
+
+    </section>
+
+    <section id="historial">
+
+        <div class="categoria player">
+
+            <h2 id="vid_player">?</h2>
+            <p id="pok_player">Tu pokémon: </p>
+
+            <div id="ataquePlayer" style="text-align: -webkit-center;"></div>
+
+        </div>
+
+        <div class="categoria pc">
+
+            <h2 id="vid_pc">?</h2>
+            <p id="pok_pc">Pokémon enemigo: </p>
+
+            <div id="ataquePC" style="text-align: -webkit-center;"></div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
