@@ -25,7 +25,7 @@ let scovillain = new pokemon(3, "Scovillain", ["🌱", "🔥"], 3, "img/icons/Sc
 let lotad = new pokemon(4, "Lotad", ["🌱", "💧"], 3, "img/icons/LatodIcono.png", "img/Lotad_XY.gif", true);
 let volcanion = new pokemon(5, "Volcanion", ["💧", "🔥"], 3, "img/icons/VolcanionIcono.png", "img/Volcanion_XY.gif", true);
 
-let pokemons = [snivy, tepig, oshawott, scovillain, lotad, volcanion, tepig];
+let pokemons = [snivy, tepig, oshawott, scovillain, lotad, volcanion];
 
 const jugador = 0;
 const pc = 1;
