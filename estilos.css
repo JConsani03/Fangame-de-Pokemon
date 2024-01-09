@@ -87,7 +87,7 @@ body {
 .selec input:checked+label {
     background-color: rgba(39, 113, 109, 0.75);
     box-shadow: 4px 4px rgba(28, 83, 80, 0.75);
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
     transform: scale(1.07);
 }
 
@@ -97,7 +97,7 @@ body {
     width: 135px;
     height: 135px;
     border-radius: 15px;
-    text-align: center;
+    text-align: -webkit-center;
     background-color: rgba(0, 0, 0, 0.254);
     cursor: pointer;
     box-sizing: border-box;
@@ -170,7 +170,7 @@ body {
 
 /* CATEGORÍA-ATACK */
 #seleccion-ataque{
-    text-align: center;
+    text-align: -webkit-center;
 }
 
 #seleccion-ataque div {
@@ -249,6 +249,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#ataquePC, #ataquePlayer {
+    text-align: -webkit-center;
 }
 /* FIN-HISTORIAL */
 
@@ -341,20 +345,61 @@ body {
     p {
         font-size: 12px;
      }
+    h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 370px) {
+    .selec label {
+        width: 80px;
+        height: 80px;
+    }
+    .selec p {
+        font-size: 8px;
+    }
+    #Snivy{
+        width: 40px;
+    }
+    #Tepig {
+        width: 25px;
+    }
+    #Oshawott {
+        width: 30px;
+    }
+    #Scovillain {
+        width: 40px;
+    }
+    #Lotad {
+        width: 50px; 
+        margin-top: 8px;
+    }
+    #Volcanion {
+        width: 40px;
+    }
 }
 
 @media (max-width: 320px) {
     .player,
     .pc {
-        margin: 4px;
+        margin: 6px;
     }
     h1 {
         font-size: 48px;
     }
+    h2 {
+        font-size: 20px;
+    }
 }
 
-@media (max-width: 285px) {
+@media (max-width: 300px) {
+    p {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 260px) {
     #pok_player {
-        gap: 15px;
+        gap: 14.5px;
      }
 }
