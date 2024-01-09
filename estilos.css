@@ -154,7 +154,7 @@ body {
     border-radius: 10px;
     border: none;
     box-shadow: 0px 3px rgb(59, 66, 87);
-    transition: .2s;
+    transition: background-color .2s;
 }
 
 #b_selec:hover {
@@ -162,7 +162,6 @@ body {
 }
 
 #b_selec:active {
-    transition: 0s;
     align-self: flex-end;
     box-shadow: none;
 }
@@ -202,11 +201,10 @@ body {
     border-radius: 15px;
     border: none;
     box-shadow: 0px 2.8px rgb(59, 66, 87);
-    transition: .2s;
+    transition: background-color .2s;
 }
 
 #seleccion-ataque button:active {
-    transition: 0s;
     align-self: flex-end;
     box-shadow: none;
 }
