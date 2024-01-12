@@ -168,11 +168,11 @@ body {
 /* FIN-CATEGORÍA-SELEC */
 
 /* CATEGORÍA-ATACK */
-#seleccion-ataque{
+#seleccion_ataque{
     text-align: -webkit-center;
 }
 
-#seleccion-ataque div {
+#seleccion_ataque div {
     display: flex;
     gap: 12px;
     justify-content: center;
@@ -191,7 +191,7 @@ body {
     background-color: rgba(70, 255, 70, 0.5);
 }
 
-#seleccion-ataque button {
+#seleccion_ataque button {
     font-family: Roboto-Bold;
     width: 120px;
     height: 45px;
@@ -204,16 +204,16 @@ body {
     transition: background-color .2s;
 }
 
-#seleccion-ataque button:active {
+#seleccion_ataque button:active {
     align-self: flex-end;
     box-shadow: none;
 }
 
-#seleccion-ataque button:disabled {
+#seleccion_ataque button:disabled {
     display: none;
 }
 
-#seleccion-ataque button:hover {
+#seleccion_ataque button:hover {
     background-color: rgb(100, 112, 147);
 }
 /* FIN-CATEGORÍA-ATACK */
