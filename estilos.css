@@ -162,6 +162,7 @@ body {
 }
 
 #b_selec:active {
+    /* 245, 80, 3 */
     align-self: flex-end;
     box-shadow: none;
 }
@@ -240,7 +241,7 @@ body {
 .pc div {
     width: 90%;
     height: 150px;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 
 #pok_player, #pok_pc {
@@ -346,6 +347,9 @@ body {
     h2 {
         font-size: 24px;
     }
+    #historial h2 {
+        font-size: 40px;
+    }
 }
 
 @media (max-width: 370px) {
@@ -393,6 +397,9 @@ body {
 @media (max-width: 300px) {
     p {
         font-size: 10px;
+    }
+    #historial h2 {
+        font-size: 36px;
     }
 }
 

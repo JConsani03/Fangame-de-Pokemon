@@ -39,7 +39,7 @@ const scovillain = new pokemon(3, "Scovillain", [planta, fuego], 500, "img/icons
 const lotad = new pokemon(4, "Lotad", [planta, agua], 500, "img/icons/LatodIcono.png", "img/Lotad_XY.gif", true);
 const volcanion = new pokemon(5, "Volcanion", [agua, fuego], 500, "img/icons/VolcanionIcono.png", "img/Volcanion_XY.gif", true);
 
-const pokemons = [snivy, tepig, oshawott, scovillain, lotad, volcanion];
+const pokedex = [snivy, tepig, oshawott, scovillain, lotad, volcanion];
 
 class ataque {
     constructor(id, tipo, nombre, daño) {
@@ -82,10 +82,6 @@ function switchDisplay() {
 
 function reiniciar() {
     turno = 1;
-    pokemons[pokemonSelect[jugador]].vidas = 500;
-    pokemons[pokemonSelect[pc]].vidas = 500;
-    pokemonSelect[jugador] = 0;
-    pokemonSelect[pc] = 0;
     eliminarBotonesAtaque();
     switchDisplay();
     p_pok_player.removeChild(p_pok_player.lastChild);
@@ -114,13 +110,13 @@ function esDebil(ataque, objetivo) {
         for(let j = 0; j < 2; j++){
             for (let i = 0; i < ataque.tipo.debilidades.length; i++) {
                 danio += comprobarDebilidad(ataque, objetivo, j, i);
-                console.log(`ataque:${ataque.nombre}, objetivo:${objetivo.nombre}, j:${j}, i:${i}, debilidades: ${ataque.tipo.debilidades.length}`);
+                // console.log(`ataque:${ataque.nombre}, objetivo:${objetivo.nombre}, j:${j}, i:${i}, debilidades: ${ataque.tipo.debilidades.length}`);
             }
         }
     } else {
         for (let i = 0; i < ataque.tipo.fortalezas.length; i++) {
             danio = comprobarDebilidad(ataque, objetivo, 0, i);
-            console.log(`ataque:${ataque.nombre}, objetivo:${objetivo.nombre}, i:${i}, debilidades: ${ataque.tipo.debilidades.length}`);
+            // console.log(`ataque:${ataque.nombre}, objetivo:${objetivo.nombre}, i:${i}, debilidades: ${ataque.tipo.debilidades.length}`);
         }
     }
 
@@ -142,7 +138,7 @@ function esFuerte(ataque, objetivo) {
         for(let j = 0; j < 2; j++){
             for (let i = 0; i < ataque.tipo.fortalezas.length; i++) {
                 danio += comprobarFortaleza(ataque, objetivo, j, i);
-                console.log(`ataque:${ataque.nombre}, objetivo:${objetivo.nombre}, j:${j}, i:${i}`);
+                // console.log(`ataque:${ataque.nombre}, objetivo:${objetivo.nombre}, j:${j}, i:${i}`);
             }
         }
     } else {
@@ -165,9 +161,7 @@ function calcularDanio(ataque, objetivo) {
     } else if((fuerte == 0) && (debil >= 0.25)){
         damage = debil;
     }
-    console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&`);
     console.log(`multiplicador: ${damage}`);
-    console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&`);
 
     return ataque.daño * damage;
 }
@@ -178,12 +172,12 @@ function listarPokemonsSeleccionables() {
 }
 
 function seleccionarAtaquePC() {
-    if (pokemons[pokemonSelect[pc]].hasSecondType) {
-        let ataques = [listarAtaques(pokemons[pokemonSelect[pc]].tiposP[0].symbol), listarAtaques(pokemons[pokemonSelect[pc]].tiposP[1].symbol)];
+    if (pokemonSelect[pc].hasSecondType) {
+        let ataques = [listarAtaques(pokemonSelect[pc].tiposP[0].symbol), listarAtaques(pokemonSelect[pc].tiposP[1].symbol)];
         let ran = random(0, 1);
         return ataques[ran][random(0, (ataques[ran].length - 1))]
     } else {
-        let ataques = listarAtaques(pokemons[pokemonSelect[pc]].tiposP[0].symbol);
+        let ataques = listarAtaques(pokemonSelect[pc].tiposP[0].symbol);
         return ataques[random(0, (ataques.length - 1))];
     }
 }
@@ -213,7 +207,7 @@ function crearBotonesAtaque(arrayAtaques) {
 }
 
 function crearFichasPokemon() {
-    pokemons.forEach(function (pokemon) {
+    pokedex.forEach(function (pokemon) {
         let id = listarPokemonsSeleccionables();
         let ficha = `<input type="radio" name="pokemon" id=${id} data-pokedex=${pokemon.id} />
         <label for=${id}>
@@ -225,10 +219,16 @@ function crearFichasPokemon() {
 }
 
 function restarVida(dañoPC, dañoPlayer) {
-    pokemons[pokemonSelect[jugador]].vidas -= dañoPC;
-    pokemons[pokemonSelect[pc]].vidas -= dañoPlayer;
-    h2_vid_pc.innerHTML = pokemons[pokemonSelect[pc]].vidas;
-    h2_vid_player.innerHTML = pokemons[pokemonSelect[jugador]].vidas;
+    console.log("VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV")
+    console.log(`vidaPC:${pokemonSelect[pc].vidas}`);
+    console.log(`vidaPlayer:${pokemonSelect[jugador].vidas}`);
+    pokemonSelect[jugador].vidas -= dañoPC;
+    pokemonSelect[pc].vidas -= dañoPlayer;
+    h2_vid_pc.innerHTML = pokemonSelect[pc].vidas;
+    h2_vid_player.innerHTML = pokemonSelect[jugador].vidas;
+    console.log(`vidaPC:${pokemonSelect[pc].vidas}`);
+    console.log(`vidaPlayer:${pokemonSelect[jugador].vidas}`);
+    console.log("VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV")
 }
 
 function actualizarHistorial(turno, ataqueJugador, ataquePC) {
@@ -246,17 +246,20 @@ function pelear(btn) {
     let ataque_PC = seleccionarAtaquePC();
     let ataque_Player = listarAtaques(btn.target.id)[btn.target.dataset.ataque];
 
-    let dañoPC = calcularDanio(ataque_PC, pokemons[pokemonSelect[jugador]]);
+    let dañoPC = calcularDanio(ataque_PC, pokemonSelect[jugador]);
+    console.log(`dañoPC:${dañoPC}`);
+    let dañoPlayer = calcularDanio(ataque_Player, pokemonSelect[pc]);
+    console.log(`dañoPlayer:${dañoPlayer}`);
     console.log(".............")
-    let dañoPlayer = calcularDanio(ataque_Player, pokemons[pokemonSelect[pc]]);
 
     restarVida(dañoPC, dañoPlayer);
+    actualizarHistorial(turno++, ataque_Player.tipo.symbol, ataque_PC.tipo.symbol);
 
-    if (pokemons[pokemonSelect[pc]].vidas <= 0 && pokemons[pokemonSelect[jugador]].vidas <= 0) {
+    if (pokemonSelect[pc].vidas <= 0 && pokemonSelect[jugador].vidas <= 0) {
         alert("¡EMPATE!");
         reiniciar()
-    } else if(pokemons[pokemonSelect[pc]].vidas <= 0 || pokemons[pokemonSelect[jugador]].vidas <= 0){
-        alert((pokemons[pokemonSelect[pc]].vidas <= 0 ? "¡GANASTE" : "¡PERDISTE") + " EL JUEGO!");
+    } else if(pokemonSelect[pc].vidas <= 0 || pokemonSelect[jugador].vidas <= 0){
+        alert((pokemonSelect[pc].vidas <= 0 ? "¡GANASTE" : "¡PERDISTE") + " EL JUEGO!");
         reiniciar()
     }
 }
@@ -271,25 +274,31 @@ function seleccionarPokemons() {
         if (radio.checked) {
 
             //Jugador
-            pokemonSelect[jugador] = radio.dataset.pokedex;
-            iconPlayer.src = pokemons[pokemonSelect[jugador]].icono;
+            let pok_reference = pokedex[radio.dataset.pokedex];
+            pokemonSelect[jugador] = new pokemon(pok_reference.id, pok_reference.nombre, 
+                                                pok_reference.tiposP, pok_reference.vidas, 
+                                                pok_reference.icono, pok_reference.gif, pok_reference.hasSecondType);
+            iconPlayer.src = pokemonSelect[jugador].icono;
             p_pok_player.appendChild(iconPlayer);
-            if (pokemons[pokemonSelect[jugador]].hasSecondType) {
-                crearBotonesAtaque(listarAtaques(pokemons[pokemonSelect[jugador]].tiposP[0].symbol));
-                crearBotonesAtaque(listarAtaques(pokemons[pokemonSelect[jugador]].tiposP[1].symbol));
+            if (pokemonSelect[jugador].hasSecondType) {
+                crearBotonesAtaque(listarAtaques(pokemonSelect[jugador].tiposP[0].symbol));
+                crearBotonesAtaque(listarAtaques(pokemonSelect[jugador].tiposP[1].symbol));
             } else {
-                crearBotonesAtaque(listarAtaques(pokemons[pokemonSelect[jugador]].tiposP[0].symbol));
+                crearBotonesAtaque(listarAtaques(pokemonSelect[jugador].tiposP[0].symbol));
             }
-            alert("Elegiste a " + pokemons[pokemonSelect[jugador]].nombre);
+            alert("Elegiste a " + pokemonSelect[jugador].nombre);
 
             //PC
-            pokemonSelect[pc] = random(0, pokemons.length - 1);
-            iconPC.src = pokemons[pokemonSelect[pc]].icono;
+            pok_reference = pokedex[random(0, (pokedex.length - 1))];
+            pokemonSelect[pc] = new pokemon(pok_reference.id, pok_reference.nombre, 
+                                            pok_reference.tiposP, pok_reference.vidas, 
+                                            pok_reference.icono, pok_reference.gif, pok_reference.hasSecondType);
+            iconPC.src = pokemonSelect[pc].icono;
             p_pok_pc.appendChild(iconPC);
-            alert("La PC eligió a " + pokemons[pokemonSelect[pc]].nombre);
+            alert("La PC eligió a " + pokemonSelect[pc].nombre);
 
-            h2_vid_pc.innerHTML = pokemons[pokemonSelect[pc]].vidas;
-            h2_vid_player.innerHTML = pokemons[pokemonSelect[jugador]].vidas;
+            h2_vid_pc.innerHTML = pokemonSelect[pc].vidas;
+            h2_vid_player.innerHTML = pokemonSelect[jugador].vidas;
             limpiarHistorial();
             switchDisplay();
 
