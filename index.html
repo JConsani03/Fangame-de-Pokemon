@@ -18,7 +18,7 @@
         <div id="pokemons">
         </div>
         <div id="btn_selec">
-            <button id="b_selec">Seleccionar</button>
+            <button onclick="seleccionarPokemons()" id="b_selec">Seleccionar</button>
         </div>
     </section>
 
@@ -31,21 +31,27 @@
     <section id="historial">
         <div class="categoria player">
 
+            <canvas id="canva_player" class="canva" width="140" height="30"></canvas>
             <h2 id="vid_player">?</h2>
             <p id="pok_player">Tu pokémon: </p>
 
-            <div id="ataquePlayer"></div>
+            <div id="ataque_player"></div>
 
         </div>
         <div class="categoria pc">
 
+            <canvas id="canva_pc" class="canva" width="140" height="30"></canvas>
             <h2 id="vid_pc">?</h2>
             <p id="pok_pc">Pokémon enemigo: </p>
 
-            <div id="ataquePC"></div>
+            <div id="ataque_pc"></div>
 
         </div>
     </section>
+
+    <div id="div_reiniciar">
+        <button id="btn_reiniciar" onclick="reiniciar()">Reiniciar</button>
+    </div>
 
 </body>
 
