@@ -130,7 +130,6 @@ body {
     height: 38px;
     display: flex;
     justify-content: center;
-    margin: 0px;
 }
 
 #btn_selec button {
@@ -255,6 +254,8 @@ body {
 /* REINICIAR */
 #div_reiniciar {
     height: 38px;
+    display: flex;
+    justify-content: center;
 }
 
 #div_reiniciar button {

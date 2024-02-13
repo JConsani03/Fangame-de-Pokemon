@@ -74,7 +74,7 @@ const ataques_agua = [hidropulso];
 const ataques_fuego = [llamarada];
 const ataques_planta = [gigadrenado];
 
-// - - - VARIABLES Y CONSTANTES DE NEGOCIO - - -
+// - - - VARIABLES Y CONSTANTES - - -
 const jugador = 0;
 const pc = 1;
 let pokemon_select = [0, 0];
@@ -335,6 +335,5 @@ function seleccionarPokemons() {
     if (aux == seleccionables.length) alert("¡Selecciona algún pokémon!");
 }
 
-// setInterval()
 crearFichasPokemon();
 switchDisplay();
