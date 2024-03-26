@@ -126,18 +126,32 @@ body {
     transition: .2s;
 }
 
-#btn_selec {
+#selec {
     height: 38px;
+    width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-#btn_selec button {
+#selec #btn_online {
+    height: 35px;
+    font-family: Roboto-Bold;
+    font-size: 16px;
+    color: rgba(231, 230, 230, 0.835);
+    background-color: rgb(73, 83, 111);
+    cursor: no-drop;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 3px rgb(59, 66, 87);
+    transition: background-color .2s;
+}
+
+#selec #b_selec {
     width: 70%;
     height: 35px;
     font-family: Roboto-Bold;
     font-size: 16px;
-    color: rgb(231, 230, 230);
+    color: rgba(231, 230, 230, 0.835);
     background-color: rgb(73, 83, 111);
     cursor: pointer;
     border-radius: 10px;
@@ -146,20 +160,36 @@ body {
     transition: background-color .2s;
 }
 
-#b_selec:hover {
+#selec #b_selec:hover {
     background-color: rgb(100, 112, 147);
 }
 
-#b_selec:active {
-    /* 245, 80, 3 */
+#selec #btn_online:hover {
+    background-color: rgb(100, 112, 147);
+}
+
+#selec #b_selec:active {
+    align-self: flex-end;
+    box-shadow: none;
+}
+
+#selec #btn_online:active {
     align-self: flex-end;
     box-shadow: none;
 }
 /* FIN-CATEGORÍA-SELEC */
 
+#section_espera {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* CATEGORÍA-ATACK */
 #seleccion_ataque{
     text-align: -webkit-center;
+    margin-top: 12px;
 }
 
 #seleccion_ataque div {
@@ -213,6 +243,7 @@ body {
 #historial {
     display: flex;
     justify-content: center;
+    margin-top: 12px;
 }
 
 .canva {
@@ -254,12 +285,12 @@ body {
 /* REINICIAR */
 #div_reiniciar {
     height: 38px;
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
 #div_reiniciar button {
-    display: none;
+    display: block;
     width: 200px;
     height: 35px;
     font-family: Roboto-Bold;

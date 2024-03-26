@@ -16,8 +16,9 @@
     <section class="categoria selec" id="seleccion_pokemon">
         <h2>Elige a tu pokémon</h2>
         <div id="pokemons"></div>
-        <div id="btn_selec">
+        <div id="selec">
             <button onclick="seleccionarPokemons()" id="b_selec">Seleccionar</button>
+            <button id="btn_online" title="online:Off" onclick="switchOnlineBtn()">🌐</button>
         </div>
     </section>
 
@@ -43,6 +44,11 @@
             <div id="ataque_pc"></div>
 
         </div>
+    </section>
+
+    <section id="section_espera">
+        <h2>ESPERANDO JUGADOR</h2>
+        <img src="./img/loading.gif" alt="loading" width="60">
     </section>
 
     <div id="div_reiniciar">
